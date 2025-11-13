@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>South Olive CRC – Holland, MI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="South Olive Christian Reformed Church in Holland, MI. Worship with us at 9:30 AM and 5:00 PM." />
+
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --bg-alt: #ffffff;
+      --accent: #7a5a2f;
+      --accent-soft: #c8a97b;
+      --text-main: #2b2b2b;
+      --text-muted: #666666;
+      --border-soft: #ded6c6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+
+    .card {
+      max-width: 1100px;
+      width: 100%;
+      background: var(--bg-alt);
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+      padding: 2.5rem 2.25rem 2rem;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .card {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem 1.75rem;
+      }
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+    }
+
+    .church-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .church-cross {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .church-cross::before,
+    .church-cross::after {
+      content: "";
+      position: absolute;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .church-cross::before {
+      width: 3px;
+      height: 16px;
+    }
+
+    .church-cross::after {
+      width: 12px;
+      height: 3px;
+    }
+
+    .church-name {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .headline {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem;
+      color: #1f1f1f;
+    }
+
+    .subhead {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    .content-main {
+      border-top: 1px solid var(--border-soft);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .times {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-size: 0.98rem;
+    }
+
+    .times span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .bullet {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+    }
+
+    .address,
+    .contact {
+      font-size: 0.98rem;
+    }
+
+    .address p,
+    .contact p {
+      margin: 0.15rem 0;
+    }
+
+    .map-link {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .map-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .right-column {
+      border-left: 1px solid var(--border-soft);
+      padding-left: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .right-column {
+        border-left: none;
+        border-top: 1px solid var(--border-soft);
+        padding-left: 0;
+        padding-top: 1.75rem;
+        margin-top: 0.5rem;
+      }
+    }
+
+    .qr-section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .qr-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .qr-box {
+      border-radius: 14px;
+      border: 1px dashed var(--border-soft);
+      padding: 0.85rem;
+      background: #faf7f1;
+      text-align: center;
+    }
+
+    .qr-image-wrap {
+      width: 180px;
+      max-width: 100%;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin: 0 auto 0.6rem;
+    }
+
+    .qr-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .qr-caption {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .map-embed-section {
+      margin-top: 1rem;
+    }
+
+    .map-embed-section iframe {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .footer {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <main class="card">
+      <section>
+        <header class="header">
+          <div class="church-mark">
+            <div class="church-name">South Olive CRC</div>
+          </div>
+          <h1 class="headline">Our new website is coming soon, but in the meantime, worship with us.</h1>
+          <p class="subhead">
+            A congregation of the Christian Reformed Church in North America, gathered around the Word, prayer,
+            and the worship of Father, Son, and Holy Spirit.
+          </p>
+        </header>
+
+        <div class="content-main">
+          <section>
+            <div class="section-title">Worship Services</div>
+            <div class="times">
+              <span><span class="bullet"></span> Morning Worship – <strong>9:30 AM</strong></span>
+              <span><span class="bullet"></span> Evening Worship – <strong>5:00 PM</strong></span>
+            </div>
+          </section>
+
+          <section class="address">
+            <div class="section-title">Location</div>
+            <p>South Olive Christian Reformed Church</p>
+            <p>6425 120th Ave</p>
+            <p>Holland, MI 49424</p>
+            <a
+              class="map-link"
+              href="https://www.google.com/maps?q=6425+120th+Ave,+Holland,+MI+49424"
+              target="_blank"
+              rel="noopener noreferrer"
+            >📍 View on Google Maps</a>
+          </section>
+
+          <section class="contact">
+            <div class="section-title">Contact</div>
+            <p>Phone: <a href="tel:+16168758645">(616) 875-8645</a></p>
+            <p>Email: <a href="mailto:secretary@southolivecrc.org">secretary@southolivecrc.org</a></p>
+          </section>
+        </div>
+      </section>
+
+      <aside class="right-column">
+        <section>
+          <div class="qr-section-title">Pie Bin QR Code</div>
+          <p class="qr-note">Scan the QR code below to access our pie bin.</p>
+
+          <div class="qr-box">
+            <div class="qr-image-wrap">
+              <!-- Replace filename with your actual QR code image -->
+              <img src="pie-bin-qr.png" class="qr-image" alt="Pie Bin QR Code" />
+            </div>
+            <div class="qr-caption">Open your camera app and tap the link that appears.</div>
+          </div>
+        </section>
+
+        <section class="map-embed-section">
+          <div class="section-title">Map</div>
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2947.9838614347354!2d-86.049987!3d42.848913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8819cbe0f9462f81%3A0x8e86fcd6d94b9945!2s6425%20120th%20Ave%2C%20Holland%2C%20MI%2049424!5e0!3m2!1sen!2sus!4v1731465600000!5m2!1sen!2sus"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </section>
+
+        <footer class="footer">
+          <span>&copy; <span id="year"></span> South Olive Christian Reformed Church</span>
+        </footer>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
